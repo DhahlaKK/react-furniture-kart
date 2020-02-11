@@ -1,0 +1,21 @@
+.dining-set{
+    padding: 30px;
+    font-size: 1.3rem;
+}
+div.gallery {
+    margin: 30px;
+    float: left;
+    width: 220px; 
+    font-family: sans-serif;
+  }
+  div.gallery:hover {
+    border: 1px solid white;
+    background-color: white;
+  }
+  
+  div.gallery img {
+    width: 100%;
+    height: auto;
+  }
+  
+ 
