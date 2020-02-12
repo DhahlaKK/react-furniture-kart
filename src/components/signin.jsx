@@ -2,11 +2,18 @@ import React, { Component } from 'react';
 import './sign.css'
 import {Link} from 'react-router-dom';
 import {Redirect} from 'react-router-dom';
+import GoogleLogin from 'react-google-login';
+import FacebookLogin from 'react-facebook-login';
 
-class SignIn extends Component {
+
+export class SignIn extends Component {
     handleForgotPassword =()=>
     {
 
+    }
+    responseGoogle = response =>
+    {
+        // console.log(response);
     }
     render() { 
         if(this.props.status.loggedin)
@@ -36,8 +43,22 @@ class SignIn extends Component {
                                     <button className="button-cls" type="submit"> Sign In </button>
                                 </div>
                                 
-                                  <Link  to="/"> <button className="button-cls  submits frgt-pass" onClick={this.handleForgotPassword}>Forgot Password</button></Link>
+                                    <Link  to="/"> <button className="button-cls  submits frgt-pass" onClick={this.handleForgotPassword}>Forgot Password</button></Link>
                                     <Link to='/signup' className="btn submits btn-blue frgt-pass" style={{marginLeft:'50vh'}}>Not a User? Sign Up</Link>
+                                    <FacebookLogin
+                                        appId="1088597931155576"
+                                        autoLoad={true}
+                                        fields="name,email,picture"
+                                        // onClick={componentClicked}
+                                        // callback={responseFacebook}
+                                         />
+                                    <GoogleLogin
+                                        clientId="492543100570-lo250v594atncl35mqkaetam03bpp1jm.apps.googleusercontent.com"
+                                        buttonText="Login"
+                                        onSuccess={this.responseGoogle}
+                                        onFailure={this.responseGoogle}
+                                        cookiePolicy={'single_host_origin'}
+  />
                             </div>
                         </form>
                     </div>
@@ -46,12 +67,3 @@ class SignIn extends Component {
 }
  
 export default SignIn;
-{/* <React.Fragment>   
-            <FurnitureConsumer>{
-                value =>{
-                    const {clickedCartButtonfromUnknown,changeButtonState} = value;
-                    if(clickedCartButtonfromUnknown)
-                        changeButtonState();
-                }
-                }
-            </FurnitureConsumer> */}

@@ -14,23 +14,24 @@ class Cart extends Component {
         return (
                 <section>
                     <FurnitureConsumer>
-                        {value =>{
-                            const {cart} =value;
-                            console.log("cart",cart);
-                            if(cart.length > 0)
-                            {
-                                return (
-                                    <div>
-                                        <Title title=" Your Cart"/>
-                                        <CartColumns/>
-                                        <CartList value={value}/>
-                                        <CartTotal value ={value}/>
-                                    </div>
-                                )
-                            }
-                            else
-                                return   <EmptyCart/>;
-                            }
+                        {
+                            value =>{
+                                const {cart} =value;
+                                console.log("cart",cart);
+                                if(cart.length > 0)
+                                {
+                                    return (
+                                        <div>
+                                            <Title title=" Your Cart"/>
+                                            <CartColumns/>
+                                            <CartList value={value} />
+                                            <CartTotal value ={value} history={this.props.history} />
+                                        </div>
+                                    )
+                                }
+                                else
+                                    return   <EmptyCart/>;
+                                }
                         }
                     </FurnitureConsumer>
                 </section>
